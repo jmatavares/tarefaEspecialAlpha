@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação SVG - Bolinhas Aleatórias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .svg-container {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="svg-container">
+        <svg id="animationBox" width="417.75269" height="355.94687">
+            <g id="g3466" transform="translate(17.876995)">
+                <circle cx="150" cy="150" r="150" fill="#e0e0e0" />
+            </g>
+            <g id="g3469" transform="matrix(0.78104055,0,0,0.78104055,279.29461,-38.735349)">
+                <path
+                    style="fill:none;stroke:#000000;stroke-width:0.999999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                    d="M 23.703403,505.28532 46.477249,243.80974 86.313054,378.04757" />
+                <rect
+                    style="fill:#0d0404;fill-opacity:1;stroke:#000000;stroke-width:1.89942;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    id="rect2295-3" width="10.67433" height="4.4318213" x="41.267078" y="241.86899" ry="2.2159107"
+                    rx="0" />
+                <path
+                    style="fill:none;stroke:#000000;stroke-width:0.999999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                    d="m -357.09485,497.77979 22.77385,-261.47555 39.8358,134.23779" />
+                <rect
+                    style="fill:#0d0404;fill-opacity:1;stroke:#000000;stroke-width:1.89942;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    id="rect2295-3-7" width="10.67433" height="4.4318213" x="-339.53116" y="234.36345" ry="2.2159107"
+                    rx="0" />
+                <path
+                    style="fill:none;stroke:#000000;stroke-width:0.999999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                    d="m 46.477363,243.80978 c 9.586471,-0.0372 19.172065,-0.0743 23.376597,-10.27091 4.204532,-10.19657 3.028957,-30.55285 11.407785,-40.52457 8.378828,-9.97172 26.310415,-9.55748 44.241305,-9.14325" />
+                <path
+                    style="fill:none;stroke:#000000;stroke-width:0.999999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                    d="m 125.50304,183.87103 c -0.019,-3.67682 -0.0571,-11.03147 8.65497,-14.48 8.71204,-3.44853 26.17236,-2.98998 34.68145,0.88912 8.50909,3.8791 8.0677,11.17753 7.84515,15.49638 -0.22256,4.31886 -0.22633,5.65793 -8.79453,6.65253 -8.5682,0.99461 -25.70084,1.64579 -34.19057,0.77549 -8.48972,-0.8703 -8.3346,-3.26302 -8.25701,-4.45986 0.0776,-1.19684 0.0796,-1.19684 0.0605,-4.87366 z" />
+                <path
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.40703px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                    d="m -30.468257,138.37455 c 8.47026,35.2319 50.569635,115.75718 63.149271,120.78974 C 45.260651,264.19685 28.319843,193.73585 7.2700845,153.47165 -13.779674,113.20744 -38.938518,103.14264 -30.468257,138.37455 Z" />
+            </g>
+        </svg>
+    </div>
+
+    <input type="number" id="ballCount" placeholder="Quantidade de bolinhas" min="1" max="20" />
+    <button id="generateBalls">Gerar Bolinhas</button>
+
+    <script>
+        const svg = document.getElementById("animationBox");
+        const ballCountInput = document.getElementById("ballCount");
+        const generateButton = document.getElementById("generateBalls");
+
+        const centerX = 150; // Centro do círculo maior
+        const centerY = 150; // Centro do círculo maior
+        const radius = 135; // Raio do círculo maior menos o raio das bolinhas
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function getRandomPosition() {
+            let angle = Math.random() * 2 * Math.PI;
+            let r = Math.sqrt(Math.random()) * radius;
+            return {
+                x: centerX + r * Math.cos(angle),
+                y: centerY + r * Math.sin(angle)
+            };
+        }
+
+        function createBall() {
+            const position = getRandomPosition();
+            const ball = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            ball.setAttribute("cx", position.x);
+            ball.setAttribute("cy", position.y);
+            ball.setAttribute("r", 15);
+            ball.setAttribute("fill", getRandomColor());
+            return ball;
+        }
+
+        function moveBall(ball) {
+            const position = getRandomPosition();
+            ball.setAttribute("cx", position.x);
+            ball.setAttribute("cy", position.y);
+        }
+
+        function moveAllBalls() {
+            const balls = svg.querySelectorAll("circle.small-ball");
+            balls.forEach(ball => moveBall(ball));
+        }
+
+        generateButton.addEventListener("click", () => {
+            const ballCount = parseInt(ballCountInput.value, 10);
+            if (isNaN(ballCount) || ballCount < 1 || ballCount > 20) {
+                alert("Por favor, insira um número entre 1 e 20.");
+                return;
+            }
+
+            // Remove todas as bolinhas existentes
+            const existingBalls = svg.querySelectorAll("circle.small-ball");
+            existingBalls.forEach(ball => ball.remove());
+
+            // Cria novas bolinhas
+            for (let i = 0; i < ballCount; i++) {
+                const ball = createBall();
+                ball.classList.add("small-ball");
+                svg.appendChild(ball);
+            }
+
+            // Inicia a animação
+            setInterval(moveAllBalls, 300);
+        });
+    </script>
+</body>
+
+</html>
