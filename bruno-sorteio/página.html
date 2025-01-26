@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Nomes e Sorteio</title>
+  </head>
+  <body>
+    <h1>Insira os nomes separados por vírgula</h1>
+    <div id="inputContainer">
+      <input type="text" id="nameInput" placeholder="Ex: Ana, João, Pedro" />
+      <button id="processButton">Gerar Lista</button>
+    </div>
+    <button id="sorteioButton" style="display: none">Sortear Vencedor</button>
+    <button id="recomecarButton" style="display: none">
+      Recomeçar Sorteio
+    </button>
+    <button id="carregarButton">Carregar Último Sorteio</button>
+    <ul id="nameList"></ul>
+
+    <h2>Vencedores</h2>
+    <ul id="winnerList"></ul>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
