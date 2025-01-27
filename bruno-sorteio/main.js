@@ -20,9 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("recomecarButton")
     .addEventListener("click", reiniciarSorteio);
   document.getElementById("carregarButton").addEventListener("click", () => {
+    localStorage.removeItem("listaObjetos");
+    document.getElementById("nameInput").style.display = "none";
+    document.getElementById("processButton").style.display = "none";
+    document.getElementById("instruction").style.display = "none";
     carregarListas();
     atualizarListaHTML(listaObjetos);
     atualizarListaDeVencedoresHTML(vencedores);
-    atualizarEstadoDoBotao(listaObjetos);
+    atualizarEstadoDoBotao();
   });
 });

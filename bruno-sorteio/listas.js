@@ -18,9 +18,9 @@ export function definirNovaLista(nomes) {
   botaoSorteio.style.display = "inline-block";
   botaoSorteio.addEventListener("click", realizarSorteio);
   listaObjetos = nomes;
-  vencedores = []; // Limpa a lista de vencedores
+  //vencedores = []; // Limpa a lista de vencedores
   salvarNoLocalStorage("listaObjetos", listaObjetos);
-  salvarNoLocalStorage("vencedores", vencedores);
+  //salvarNoLocalStorage("vencedores", vencedores);
 }
 
 export function carregarListas() {
@@ -56,9 +56,14 @@ export function processarNomes() {
     numero: index + 1,
     nome: nome,
   }));
+  document.getElementById("carregarButton").style.display = "none";
+  const iframe = document.getElementById("meuIframe");
+  if (iframe.contentWindow) {
+    iframe.contentWindow.postMessage({ tipo: "gerarBolinhas", quantidade: novaLista.length }, "*"); // Envia a quantidade de bolinhas para o iframe
+  }
   definirNovaLista(novaLista);
   atualizarListaHTML(listaObjetos);
-  atualizarListaDeVencedoresHTML(vencedores);
+  //atualizarListaDeVencedoresHTML(vencedores);
   substituirInputEbotao();
 }
 
@@ -73,8 +78,8 @@ export function removerNomeDaLista(indice) {
 export function reiniciarListas() {
   listaObjetos = [];
   vencedores = [];
-  salvarNoLocalStorage("listaObjetos", listaObjetos);
-  salvarNoLocalStorage("vencedores", vencedores);
+  //salvarNoLocalStorage("listaObjetos", listaObjetos);
+  //salvarNoLocalStorage("vencedores", vencedores);
   atualizarListaHTML(listaObjetos);
   atualizarListaDeVencedoresHTML(vencedores);
   atualizarEstadoDoBotao(listaObjetos);

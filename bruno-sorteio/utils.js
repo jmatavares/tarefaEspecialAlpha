@@ -63,7 +63,7 @@ export function atualizarListaDeVencedoresHTML(lista) {
   });
 }
 
-export function atualizarEstadoDoBotao(listaObjetos) {
+export function atualizarEstadoDoBotao() {
   const recomeçarButton = document.getElementById("recomecarButton");
   recomeçarButton.style.display = "inline-block";
 }
@@ -74,11 +74,14 @@ export function substituirInputEbotao() {
   const processButton = document.getElementById("processButton");
   const recomeçarButton = document.getElementById("recomecarButton");
   if (listaObjetos.length > 0) {
+    document.getElementById("instruction").innerHTML = "";
     input.style.display = "none";
     processButton.style.display = "none";
     recomeçarButton.style.display = "none";
     inputContainer.appendChild(recomeçarButton);
   } else {
+    document.getElementById("instruction").innerHTML = "Insira os nomes separados por vírgula";
+    document.getElementById("instruction").style.display = "inline-block";
     input.style.display = "inline-block";
     processButton.style.display = "inline-block";
     recomeçarButton.style.display = "none";
