@@ -76,7 +76,7 @@ export function substituirInputEbotao() {
   if (listaObjetos.length > 0) {
     input.style.display = "none";
     processButton.style.display = "none";
-    recomeçarButton.style.display = "inline-block";
+    recomeçarButton.style.display = "none";
     inputContainer.appendChild(recomeçarButton);
   } else {
     input.style.display = "inline-block";

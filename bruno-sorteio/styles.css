@@ -1,0 +1,155 @@
+/* Definições gerais do corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start; /* Mantém o conteúdo no topo */
+    height: 100vh;
+    flex-direction: column;
+    padding-top: 1rem; /* Adiciona espaçamento suficiente no topo */
+}
+
+/* Estilo para o título principal */
+h1 {
+    color: #333;
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+
+/* Estilo do contêiner onde o input e os botões estão */
+#inputContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    margin-left: 2%;
+}
+
+/* Estilo do input de nomes */
+#nameInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    margin-right: 2%;
+}
+
+#instruction {
+    margin-left: 2%;
+}
+
+/* Estilo dos botões */
+button {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Estilo das listas */
+#nameList, #winnerList {
+    list-style-type: none;
+    padding: 10px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #555;
+}
+
+/* Estilos individuais dos itens da lista */
+#nameList li, #winnerList li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+#nameList li:last-child, #winnerList li:last-child {
+    border-bottom: none;
+}
+
+/* Configurações do layout da página com 3 colunas */
+.containerPag {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 1rem;
+    gap: 10px;
+}
+
+/* Ajuste das colunas */
+.left-column, .center-column, .right-column {
+    width: 32%;
+}
+
+/* Ajusta a disposição dos botões na esquerda */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Centraliza os conteúdos das colunas */
+.center-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .containerPag {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-column, .center-column, .right-column {
+        width: 100%;
+        align-items: center;
+    }
+
+    #inputContainer {
+        width: 90%;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    #nameList, #winnerList {
+        width: 90%;
+    }
+}
