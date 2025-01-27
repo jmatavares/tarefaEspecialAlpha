@@ -35,6 +35,12 @@ export function realizarSorteio() {
   listaHTML[indice].style.color = "green";
 
   vencedores.push(vencedor);
+
+  const iframe = document.getElementById("meuIframe");
+  if (iframe.contentWindow) {
+    iframe.contentWindow.postMessage({ tipo: "removerBolinhas",  }, "*"); // Envia a quantidade de bolinhas para o iframe
+  }
+
   salvarNoLocalStorage("vencedores", vencedores);
   atualizarListaDeVencedoresHTML(vencedores);
 
@@ -51,4 +57,6 @@ export function reiniciarSorteio() {
   atualizarListaHTML(listaObjetos);
   atualizarListaDeVencedoresHTML(vencedores);
   substituirInputEbotao(listaObjetos);
+  document.getElementById("carregarButton").style.display = "inline-block";
+  document.getElementById("sorteioButton").style.display = "none";
 }
