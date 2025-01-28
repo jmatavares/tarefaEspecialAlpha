@@ -67,12 +67,20 @@ export function processarNomes() {
   substituirInputEbotao();
 }
 
-// Remove um nome da lista principal
+// Remove um nome da lista principal //JAMILE
+//export function removerNomeDaLista(indice) {
+//  listaObjetos.splice(indice, 1);
+//  salvarNoLocalStorage("listaObjetos", listaObjetos);
+//  atualizarListaHTML(listaObjetos);
+//}
 export function removerNomeDaLista(indice) {
-  listaObjetos.splice(indice, 1);
+  const nomeRemovido = listaObjetos[indice].nome; // Armazena o nome antes de remover
+  listaObjetos.splice(indice, 1); // Remove o objeto da lista
   salvarNoLocalStorage("listaObjetos", listaObjetos);
   atualizarListaHTML(listaObjetos);
+  return nomeRemovido; // Retorna o nome removido
 }
+
 
 // Reinicia completamente as listas
 export function reiniciarListas() {
