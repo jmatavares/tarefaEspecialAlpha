@@ -1,3 +1,10 @@
+import {
+    listaObjetos,
+    vencedores,
+    reiniciarListas,
+    removerNomeDaLista,
+  } from "./bruno-sorteio/listas.js";
+
 const svg = document.getElementById("animationBox");
 const ballCountInput = document.getElementById("ballCount");
 const generateButton = document.getElementById("generateBalls");
@@ -69,11 +76,12 @@ function generateBalls(quant) {
 };
 
 window.addEventListener("message", (event) => {
+    // APAGAR
     // Verificação da origem da mensagem
-    if (event.origin !== "http://127.0.0.1:5500") { // Domínio de origem da mensagem
-        console.error("Mensagem de origem desconhecida!");
-        return;
-    }
+    //if (event.origin !== "http://127.0.0.1:5500") { // Domínio de origem da mensagem
+    //    console.error("Mensagem de origem desconhecida!");
+    //    return;
+    //}
 
     // A mensagem para gerar bolinhas
     const { tipo, quantidade } = event.data;
@@ -83,6 +91,82 @@ window.addEventListener("message", (event) => {
 
     // Remove uma bolinha
     if (tipo === "removerBolinhas") {
-        document.querySelector("circle.small-ball").remove();
+        // Remove uma bolinha
+        const ballToRemove = document.querySelector("circle.small-ball");
+        if (ballToRemove) {
+            ballToRemove.remove();
+        }
+    
+        // Exibir o #resultadoBolinha com animação reiniciada
+        const resultadoBolinha = document.getElementById("resultadoBolinha");
+        const animatedCircle = document.getElementById("animatedCircle");
+        const circleText = document.getElementById("circleText");
+    
+        // Torna visível
+        resultadoBolinha.style.display = "block";
+        resultadoBolinha.style.zIndex = "2";
+    
+        // Reinicia a animação
+        animatedCircle.setAttribute("r", "10"); // Resetar raio inicial
+        const circleAnimation = animatedCircle.querySelector("animate");
+        circleAnimation.beginElement(); // Reiniciar animação da bolinha
+    
+        const textAnimation = circleText.querySelector("animate");
+        textAnimation.beginElement(); // Reiniciar animação do texto
+    
+        // Ocultar novamente após 3 segundos
+        setTimeout(() => {
+            resultadoBolinha.style.display = "none";
+        }, 3000);
     }
+
+    //FAZER ISSO FUNCIONAR PARA TROCAR A COR E O NOME DENTRO DA BOLINHA DO SORTEIO
+    //if (tipo === "removerBolinhas") {
+    //    // Remove uma bolinha
+    //    const ballToRemove = document.querySelector("circle.small-ball");
+//
+    //    if (ballToRemove) {
+    //        // Pega a cor da bolinha removida
+    //        const corRemovida = ballToRemove.getAttribute("fill");
+//
+    //        // Remove a bolinha
+    //        ballToRemove.remove();
+//
+    //        // Remove o nome correspondente da lista
+    //        console.log("Lista antes da remoção:", listaObjetos);
+    //        const nomeRemovido = removerNomeDaLista(0);
+    //        console.log("Nome removido:", nomeRemovido);
+    //        console.log("Lista após a remoção:", listaObjetos);
+//
+    //        // Exibir o #resultadoBolinha com animação reiniciada e valores dinâmicos
+    //        const resultadoBolinha = document.getElementById("resultadoBolinha");
+    //        const animatedCircle = document.getElementById("animatedCircle");
+    //        const circleText = document.getElementById("circleText");
+//
+    //        // Alterar a cor e o texto dinamicamente
+    //        animatedCircle.setAttribute("fill", corRemovida); // Cor da bolinha removida
+    //        circleText.textContent = nomeRemovido; // Nome associado
+//
+    //        // Reiniciar animações
+    //        animatedCircle.setAttribute("r", "10"); // Resetar raio inicial
+    //        const circleAnimation = animatedCircle.querySelector("animate");
+    //        circleAnimation.beginElement(); // Reiniciar animação da bolinha
+//
+    //        const textAnimation = circleText.querySelector("animate");
+    //        textAnimation.beginElement(); // Reiniciar animação do texto
+//
+    //        // Torna visível
+    //        resultadoBolinha.style.display = "block";
+    //        resultadoBolinha.style.zIndex = "2";
+//
+    //        // Ocultar novamente após 3 segundos
+    //        setTimeout(() => {
+    //            resultadoBolinha.style.display = "none";
+    //        }, 3000);
+    //    }
+    //}
+
+
+
+
 });
