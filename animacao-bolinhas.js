@@ -2,7 +2,7 @@ const svg = document.getElementById("animationBox");
 const ballCountInput = document.getElementById("ballCount");
 const generateButton = document.getElementById("generateBalls");
 
-const centerX = 150; // Centro do círculo maior
+const centerX = 150 + 17.876995; // Centro do círculo maior
 const centerY = 150; // Centro do círculo maior
 const radius = 135; // Raio do círculo maior menos o raio das bolinhas
 
@@ -65,7 +65,7 @@ function generateBalls(quant) {
     }
 
     // Inicia a animação
-    setInterval(moveAllBalls, 300);
+    setInterval(moveAllBalls, 1000);
 };
 
 window.addEventListener("message", (event) => {
