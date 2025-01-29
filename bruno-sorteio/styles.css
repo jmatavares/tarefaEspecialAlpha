@@ -35,6 +35,7 @@ h2 {
     align-items: baseline;
     margin-bottom: 2rem;
     width: 100%;
+    justify-content: center;
 
     /*margin-left: 2%;*/
 }
@@ -54,7 +55,7 @@ h2 {
 }
 
 #instruction {
-    margin-left: 2%
+    margin-left: 2%;
 }
 
 /* Estilo dos botões */
@@ -134,6 +135,49 @@ button:disabled {
     align-items: center;
 }
 
+/* Contêiner para as bolinhas na parte superior e inferior */
+.bolinhas-container {
+    display: flex; /* Usa flexbox para distribuir as bolinhas */
+    justify-content: center; /* Centraliza as bolinhas horizontalmente */
+    flex-wrap: wrap; /* Permite que as bolinhas quebrem linha se necessário */
+    gap: 10px; /* Define espaçamento entre as bolinhas */
+    width: 100%; /* Garante que as bolinhas ocupem toda a largura */
+    padding: 20px 0; /* Adiciona um espaçamento superior e inferior */
+    max-width: 100%; /* Garante que o contêiner não ultrapasse a largura da tela */
+}
+
+/* Estilo das bolinhas */
+.bolinha {
+    width: 50px; /* Largura da bolinha */
+    height: 50px; /* Altura da bolinha */
+    background-color: rgb(25, 180, 130); /* Cor do círculo externo */
+    border-radius: 50%; /* Faz a bolinha ser um círculo */
+    display: flex; /* Usa flexbox para alinhar o número */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    font-size: 20px; /* Define o tamanho da fonte do número */
+    font-weight: bold; /* Deixa o número em negrito */
+    color: black; /* Cor do número */
+    position: relative; /* Define posição relativa para os elementos internos */
+}
+
+/* Círculo interno da bolinha */
+.bolinha::before {
+    content: ''; /* Cria um elemento antes da bolinha */
+    width: 60%; /* Define a largura do círculo interno */
+    height: 60%; /* Define a altura do círculo interno */
+    background-color: white; /* Cor do círculo interno */
+    border-radius: 50%; /* Faz o círculo interno ser redondo */
+    position: absolute; /* Posiciona dentro da bolinha */
+    z-index: 0; /* Mantém o círculo interno atrás do número */
+}
+
+/* Ajusta a camada do número para garantir que ele fique visível */
+.bolinha span {
+    position: relative; /* Garante que o número fique acima do círculo interno */
+    z-index: 1; /* Coloca o número acima do círculo interno */
+}
+
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     #instruction {
@@ -183,4 +227,23 @@ button:disabled {
     #nameList, #winnerList {
         width: 90%;
     }
+
+    .bolinhas-container {
+        justify-content: space-around; /* Espaça as bolinhas de maneira mais equitativa */
+    }
+
+    /* Limita o número de bolinhas por linha */
+    .bolinha {
+        width: 40px; /* Reduz a largura das bolinhas em telas menores */
+        height: 40px; /* Reduz a altura das bolinhas em telas menores */
+    }
+
+    /* Garante que sempre haverá duas linhas de bolinhas */
+    .bolinhas-container {
+        flex-wrap: wrap; /* Permite a quebra em várias linhas */
+        gap: 15px; /* Aumenta o espaçamento entre as bolinhas para melhorar a visibilidade */
+    }
 }
+
+
+
