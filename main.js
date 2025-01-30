@@ -33,23 +33,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Aguarda até que todo o HTML seja carregado antes de executar o código
 document.addEventListener("DOMContentLoaded", function () {
-
-  // Função para criar as bolinhas dentro do contêiner especificado
+  
+  // Função responsável por criar as bolinhas dentro do contêiner especificado
   function criarBolinhas(containerClass) {
-    const container = document.querySelector(containerClass); // Seleciona o contêiner
+    const container = document.querySelector(containerClass); // Seleciona o contêiner onde as bolinhas serão inseridas
     
-    for (let i = 0; i < 25; i++) { // Cria 10 bolinhas
-        let bolinha = document.createElement("div"); // Cria uma bolinha
-        bolinha.classList.add("bolinha"); // Adiciona a classe de estilo
-        
-        let numero = document.createElement("span"); // Cria um <span> para o número
-        numero.textContent = Math.floor(Math.random() * 99) + 1; // Gera um número aleatório
-        bolinha.appendChild(numero); // Adiciona o número dentro da bolinha
-        
-        container.appendChild(bolinha); // Adiciona a bolinha ao contêiner
-    }
-}
+    container.innerHTML = ""; // Remove qualquer bolinha existente para evitar duplicação ao redimensionar a tela
 
-criarBolinhas(".bolinhas-topo"); // Cria as bolinhas no topo
-criarBolinhas(".bolinhas-base"); // Cria as bolinhas na base
+    // Obtém a largura total da janela do navegador
+    const larguraTela = window.innerWidth;
+
+    // Define o tamanho aproximado de cada bolinha (incluindo espaçamento)
+    const tamanhoBolinha = 60; // Considera 50px de bolinha + margem entre elas
+
+    // Calcula quantas bolinhas cabem em uma única linha dentro da largura da tela
+    const quantidadeBolinhas = Math.floor(larguraTela / tamanhoBolinha) - 1;
+
+    // Loop para criar a quantidade exata de bolinhas
+    for (let i = 0; i < quantidadeBolinhas; i++) {
+      let bolinha = document.createElement("div"); // Cria um elemento <div> para a bolinha
+      bolinha.classList.add("bolinha"); // Adiciona a classe CSS que estiliza a bolinha
+
+      let numero = document.createElement("span"); // Cria um <span> para conter o número dentro da bolinha
+      numero.textContent = Math.floor(Math.random() * 99) + 1; // Gera um número aleatório entre 1 e 99
+
+      bolinha.appendChild(numero); // Insere o número dentro da bolinha
+      container.appendChild(bolinha); // Adiciona a bolinha ao contêiner correto
+    }
+  }
+
+  // Criar bolinhas no carregamento inicial da página
+  criarBolinhas(".bolinhas-topo"); // Cria a linha de bolinhas na parte superior
+  criarBolinhas(".bolinhas-base"); // Cria a linha de bolinhas na parte inferior
+
+  // Adiciona um evento que escuta mudanças no tamanho da tela
+  window.addEventListener("resize", () => {
+    criarBolinhas(".bolinhas-topo"); // Atualiza as bolinhas do topo quando a tela for redimensionada
+    criarBolinhas(".bolinhas-base"); // Atualiza as bolinhas da base quando a tela for redimensionada
+  });
+
 });
