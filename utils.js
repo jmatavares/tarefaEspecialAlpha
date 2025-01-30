@@ -10,6 +10,10 @@ import { listaObjetos } from "./listas.js";
 export function obterNomesDoInput() {
   const input = document.getElementById("nameInput");
 
+  if (/[/.!?;:()'"-]/.test(input.value)) {
+    alert("Utilize somente vírgula!");
+    return null;
+  }
   const nomes = input.value
     .split(",")
     .map((nome) => nome.trim())

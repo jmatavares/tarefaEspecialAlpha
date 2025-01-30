@@ -32,5 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarListaDeVencedoresHTML(vencedores);
     atualizarEstadoDoBotao();
   });
+
+  //botão Enter ativa o processButton
+  document.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      document.getElementById("processButton").click();
+    }
+  });
 });
 
