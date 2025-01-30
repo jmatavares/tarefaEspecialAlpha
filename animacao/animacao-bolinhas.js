@@ -76,7 +76,7 @@ function generateBalls(quant) {
         svg.appendChild(ball);
     }
 
-    setInterval(moveAllBalls, 1000);
+    setInterval(moveAllBalls, 100); /*time interval*/
 };
 
 /**
