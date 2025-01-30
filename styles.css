@@ -1,210 +1,183 @@
+/* Define que todas as caixas consideram a borda dentro do tamanho total */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-/* Definições gerais do corpo da página */
+
+/* Estiliza o corpo da página */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
+    font-family: 'Arial', sans-serif; /* Define a fonte padrão */
+    background-color: #f5f5f5; /* Define a cor de fundo */
     display: flex;
-    justify-content: flex-start; /* Mantém o conteúdo no topo */
-    height: 100vh;
-    flex-direction: column;
-    padding-top: 1rem; /* Adiciona espaçamento suficiente no topo */
+    flex-direction: column; /* Mantém o layout em coluna */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    padding-top: 1rem; /* Adiciona espaçamento no topo */
 }
 
-/* Estilo para o título principal */
+/* Estiliza os títulos principais */
 h1 {
-    color: #333;
+    color: #333; 
     text-align: center; /* Centraliza o título */
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Espaçamento inferior */
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 20px; 
 }
 
-
-/* Estilo do contêiner onde o input e os botões estão */
+/* Estiliza o contêiner do input e botões */
 #inputContainer {
     display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    margin-bottom: 2rem;
-    width: 100%;
-    justify-content: center;
-
-    /*margin-left: 2%;*/
+    flex-direction: row; /* Alinha os elementos em linha */
+    align-items: baseline; /* Alinha os elementos pela linha base do texto */
+    justify-content: center; /* Centraliza o conteúdo */
+    margin-bottom: 2rem; 
+    width: 100%; 
 }
 
-/* Estilo do input de nomes */
+/* Estiliza o campo de input de nomes */
 #nameInput {
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
-    outline: none;
-    margin-left: 2%;
-    margin-right: 2%;
+    width: 50%; /* Define largura relativa */
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    font-size: 1rem; 
+    color: #333; 
+    outline: none; /* Remove o contorno ao focar */
+    margin: 0 2%; /* Adiciona espaçamento lateral */
 }
 
+/* Define espaçamento para instruções */
 #instruction {
     margin-left: 2%;
 }
 
-/* Estilo dos botões */
+/* Estiliza os botões */
 button {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-    text-align: center;
+    width: 100%; 
+    max-width: 300px; /* Define uma largura máxima */
+    padding: 10px 20px; /* Espaçamento interno */
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    margin-top: 10px; 
+    text-align: center; 
 }
 
+/* Muda a cor do botão ao passar o mouse */
 button:hover {
     background-color: #0056b3;
 }
 
+/* Define estilo para botões desabilitados */
 button:disabled {
     background-color: #aaa;
     cursor: not-allowed;
 }
 
-/* Estilo das listas */
+/* Estiliza listas de nomes e vencedores */
 #nameList, #winnerList {
     list-style-type: none;
-    padding: 10px;
-    margin: 20px auto;
+    padding: 10px; 
+    margin: 20px auto; 
     width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    color: #555;
+    max-width: 400px; 
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    color: #555; 
 }
 
-/* Estilos individuais dos itens da lista */
+/* Estiliza os itens das listas */
 #nameList li, #winnerList li {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+    padding: 8px; 
+    border-bottom: 1px solid #ddd; 
 }
 
+/* Remove a borda inferior do último item da lista */
 #nameList li:last-child, #winnerList li:last-child {
     border-bottom: none;
 }
 
-/* Configurações do layout da página com 3 colunas */
+/* Define layout em 3 colunas */
 .containerPag {
     display: flex;
-    justify-content: space-between;
-    height: 100vh;
-    padding: 1rem;
-    gap: 10px;
+    justify-content: space-between; /* Distribui os elementos uniformemente */
+    height: 100vh; 
+    padding: 1rem; 
+    gap: 10px; 
 }
 
-/* Ajuste das colunas */
+/* Define largura das colunas */
 .left-column, .center-column, .right-column {
     width: 32%;
 }
 
-/* Ajusta a disposição dos botões na esquerda */
+/* Alinha os botões na esquerda */
 .left-column {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
+    flex-direction: column; /* Empilha os botões verticalmente */
+    gap: 10px; /* Espaçamento entre botões */
+    align-items: center; /* Centraliza os botões */
 }
 
-/* Centraliza os conteúdos das colunas */
+/* Centraliza o conteúdo das colunas do meio e direita */
 .center-column, .right-column {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Contêiner para as bolinhas na parte superior e inferior */
+/* Define o estilo das bolinhas */
 .bolinhas-container {
-    display: flex; /* Usa flexbox para distribuir as bolinhas */
-    justify-content: center; /* Centraliza as bolinhas horizontalmente */
-    flex-wrap: wrap; /* Permite que as bolinhas quebrem linha se necessário */
-    gap: 10px; /* Define espaçamento entre as bolinhas */
-    width: 100%; /* Garante que as bolinhas ocupem toda a largura */
-    padding: 20px 0; /* Adiciona um espaçamento superior e inferior */
-    max-width: 100%; /* Garante que o contêiner não ultrapasse a largura da tela */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite quebra de linha */
+    gap: 10px; /* Espaçamento entre bolinhas */
+    width: 100%;
+    padding: 20px 0;
+    max-width: 100%;
 }
 
-/* Estilo das bolinhas */
 .bolinha {
-    width: 50px; /* Largura da bolinha */
-    height: 50px; /* Altura da bolinha */
-    background-color: rgb(25, 180, 130); /* Cor do círculo externo */
-    border-radius: 50%; /* Faz a bolinha ser um círculo */
-    display: flex; /* Usa flexbox para alinhar o número */
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    font-size: 20px; /* Define o tamanho da fonte do número */
-    font-weight: bold; /* Deixa o número em negrito */
-    color: black; /* Cor do número */
-    position: relative; /* Define posição relativa para os elementos internos */
+    width: 50px;
+    height: 50px;
+    background-color: rgb(25, 180, 130);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    position: relative;
 }
 
 /* Círculo interno da bolinha */
 .bolinha::before {
-    content: ''; /* Cria um elemento antes da bolinha */
-    width: 60%; /* Define a largura do círculo interno */
-    height: 60%; /* Define a altura do círculo interno */
-    background-color: white; /* Cor do círculo interno */
-    border-radius: 50%; /* Faz o círculo interno ser redondo */
-    position: absolute; /* Posiciona dentro da bolinha */
-    z-index: 0; /* Mantém o círculo interno atrás do número */
+    content: '';
+    width: 60%;
+    height: 60%;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
 }
 
-/* Ajusta a camada do número para garantir que ele fique visível */
+/* Prioriza a ordem para que o número da bolinha apareca */
 .bolinha span {
-    position: relative; /* Garante que o número fique acima do círculo interno */
-    z-index: 1; /* Coloca o número acima do círculo interno */
+    position: relative;
+    z-index: 1;
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
-    #instruction {
-        align-self: center;
-        font-size: 1rem;
-        margin-bottom: 1rem;
-        margin-left: 0;
-    }
-
-    #inputContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        margin: 0 auto;
-        height: 108px;
-    }
-
-    #nameInput {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    #iframe {
-        width: 50px;
-        height: 50px;
-    }
     .containerPag {
         flex-direction: column;
         align-items: center;
@@ -212,11 +185,11 @@ button:disabled {
 
     .left-column, .center-column, .right-column {
         width: 100%;
-        align-items: center;
     }
 
-    #inputContainer {
-        width: 90%;
+    #nameInput {
+        width: 100%;
+        max-width: 300px;
     }
 
     button {
@@ -228,22 +201,8 @@ button:disabled {
         width: 90%;
     }
 
-    .bolinhas-container {
-        justify-content: space-around; /* Espaça as bolinhas de maneira mais equitativa */
-    }
-
-    /* Limita o número de bolinhas por linha */
     .bolinha {
-        width: 40px; /* Reduz a largura das bolinhas em telas menores */
-        height: 40px; /* Reduz a altura das bolinhas em telas menores */
-    }
-
-    /* Garante que sempre haverá duas linhas de bolinhas */
-    .bolinhas-container {
-        flex-wrap: wrap; /* Permite a quebra em várias linhas */
-        gap: 15px; /* Aumenta o espaçamento entre as bolinhas para melhorar a visibilidade */
+        width: 40px;
+        height: 40px;
     }
 }
-
-
-
