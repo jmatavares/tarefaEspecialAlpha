@@ -4,34 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sorteador</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
 
     <div class="bolinhas-container bolinhas-topo"></div>
-
     <h1>Sorteio de Nomes</h1>
 
     <h2 id="instruction">Insira os nomes separados por vírgula</h2>
     <div id="inputContainer">
-      <input type="text" id="nameInput" placeholder="Ex: Ana, João, Pedro" />
+      <input
+        type="text"
+        id="nameInput"
+        placeholder="Ex: Bruno, Jamile, Maikon, Vinicius"
+      />
       <button id="processButton">Gerar Lista</button>
     </div>
 
     <div>
-      <iframe id="meuIframe" src="../animacao-bolinhas-sorteio.html" width="100%" height="500" frameborder="0"></iframe>
+      <iframe
+        id="meuIframe"
+        src="../animacao-bolinhas-sorteio.html"
+        width="100%"
+        height="500"
+        frameborder="0"
+      ></iframe>
     </div>
 
     <div class="containerPag">
-
       <div class="left-column">
-        <button id="sorteioButton" style="display: none">Sortear Vencedor</button>
-        <button id="recomecarButton" style="display: none;">Começar Novo Sorteio</button>
+        <button id="sorteioButton" style="display: none">
+          Sortear Vencedor
+        </button>
+        <button id="recomecarButton" style="display: none">
+          Começar Novo Sorteio
+        </button>
         <button id="carregarButton">Carregar o Último Resultado</button>
       </div>
 
       <div class="center-column">
-        <h2>Lista de Nomes</h2>  
+        <h2>Lista de Nomes</h2>
         <ul id="nameList"></ul>
       </div>
 
@@ -39,7 +51,6 @@
         <h2>Vencedores</h2>
         <ul id="winnerList"></ul>
       </div>
-
     </div>
 
     <div class="bolinhas-container bolinhas-base"></div>

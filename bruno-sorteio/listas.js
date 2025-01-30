@@ -12,23 +12,35 @@ import {
 export let listaObjetos = []; // Lista principal
 export let vencedores = []; // Lista de vencedores
 
-// Define uma nova lista de nomes
+/** 
+ * Função para definir uma nova lista de nomes
+ * Mostra o botão de sorteio
+ * Adiciona um evento de clique ao botão de sorteio
+ * A listaObjetos é atualizada com a nova lista de nomes
+ * A nova lista é salva no localStorage
+ * 
+ * @param {Array} nomes - A lista de nomes a ser definida
+ * */ 
 export function definirNovaLista(nomes) {
   const botaoSorteio = document.getElementById("sorteioButton");
   botaoSorteio.style.display = "inline-block";
   botaoSorteio.addEventListener("click", realizarSorteio);
   listaObjetos = nomes;
-  //vencedores = []; // Limpa a lista de vencedores
   salvarNoLocalStorage("listaObjetos", listaObjetos);
-  //salvarNoLocalStorage("vencedores", vencedores);
 }
 
+/** 
+ * Função para carregar as listas do localStorage
+ * Carrega os participantes e vencedores do localStorage
+ * Verifica se há dados salvos
+ * Se não houver dados, exibe uma mensagem de erro
+ * Atualiza as listas globais
+ * Atualiza a interface
+ * */ 
 export function carregarListas() {
-  // Carrega os participantes e vencedores do localStorage
   const participantesSalvos = carregarDoLocalStorage("listaObjetos") || [];
   const vencedoresSalvos = carregarDoLocalStorage("vencedores") || [];
 
-  // Verifica se há dados salvos
   if (!participantesSalvos && !vencedoresSalvos) {
     alert(
       "Nenhuma lista de participantes ou vencedores encontrada no localStorage."
@@ -36,17 +48,21 @@ export function carregarListas() {
     return;
   }
 
-  // Atualiza as listas globais
   listaObjetos.splice(0, listaObjetos.length, ...participantesSalvos);
   vencedores.splice(0, vencedores.length, ...vencedoresSalvos);
 
-  // Atualiza a interface
   atualizarListaHTML(listaObjetos);
   atualizarListaDeVencedoresHTML(vencedores);
 
   alert("Listas carregadas com sucesso!");
 }
 
+/** 
+ * Filtra os nomes do input e gera a lista de nomes para o sorteio
+ * Mapeia os nomes para criar um objeto com o número e o nome
+ * Oculta o botão de carregar e envia a quantidade de bolinhas para o iframe
+ * Define a nova lista de nomes
+ * */ 
 export function processarNomes() {
   const nomesFiltrados = obterNomesDoInput();
   if (!nomesFiltrados) {
@@ -63,34 +79,40 @@ export function processarNomes() {
   }
   definirNovaLista(novaLista);
   atualizarListaHTML(listaObjetos);
-  //atualizarListaDeVencedoresHTML(vencedores);
   substituirInputEbotao();
 }
 
-// Remove um nome da lista principal //JAMILE
-//export function removerNomeDaLista(indice) {
-//  listaObjetos.splice(indice, 1);
-//  salvarNoLocalStorage("listaObjetos", listaObjetos);
-//  atualizarListaHTML(listaObjetos);
-//}
+/** 
+ * Função para remover um nome da lista principal
+ * Armazena o nome antes de remover
+ * Remove o objeto da lista
+ * Salva a lista atualizada no localStorage
+ * Atualiza a lista no HTML
+ * Retorna o nome removido
+ * 
+ * @param {number} indice - O índice do nome a ser removido
+ * @returns {string} - O nome removido
+ * */ 
 export function removerNomeDaLista(indice) {
-  const nomeRemovido = listaObjetos[indice].nome; // Armazena o nome antes de remover
-  listaObjetos.splice(indice, 1); // Remove o objeto da lista
+  const nomeRemovido = listaObjetos[indice].nome;
+  listaObjetos.splice(indice, 1);
   salvarNoLocalStorage("listaObjetos", listaObjetos);
   atualizarListaHTML(listaObjetos);
-  return nomeRemovido; // Retorna o nome removido
+  return nomeRemovido;
 }
 
 
-// Reinicia completamente as listas
+/** 
+ * Função para reiniciar completamente as listas
+ * Esvazia as listas de nomes e vencedores
+ * Atualiza a lista de nomes no HTML
+ * Atualiza a lista de vencedores no HTML
+ * Atualiza o estado do botão de recomeçar
+ * */ 
 export function reiniciarListas() {
   listaObjetos = [];
   vencedores = [];
-  //salvarNoLocalStorage("listaObjetos", listaObjetos);
-  //salvarNoLocalStorage("vencedores", vencedores);
   atualizarListaHTML(listaObjetos);
   atualizarListaDeVencedoresHTML(vencedores);
   atualizarEstadoDoBotao(listaObjetos);
 }
-
-// Função para carregar as listas do localStorage
