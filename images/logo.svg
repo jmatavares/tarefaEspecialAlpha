@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="animationBox"
+   width="306"
+   height="306"
+   version="1.1"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.69483056"
+     inkscape:cx="-48.213193"
+     inkscape:cy="253.29916"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="animationBox"
+     showguides="true">
+    <sodipodi:guide
+       position="-227.05657,125.09384"
+       orientation="1,0"
+       id="guide6"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <g
+     id="g3466-2"
+     inkscape:export-filename="logo.png"
+     inkscape:export-xdpi="80.91095"
+     inkscape:export-ydpi="80.91095"
+     style="stroke:#000000;stroke-width:6;stroke-dasharray:none;stroke-opacity:1"
+     transform="translate(3,3)">
+    <circle
+       cx="150"
+       cy="150"
+       r="150"
+       fill="#e0e0e0"
+       id="circle1-7"
+       style="stroke:#000000;stroke-width:6;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+  <g
+     id="g3469-0"
+     transform="matrix(0.78104055,0,0,0.78104055,264.46107,-37.82076)">
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.40703px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -30.468257,138.37455 c 8.47026,35.2319 50.569635,115.75718 63.149271,120.78974 C 45.260651,264.19685 28.319843,193.73585 7.2700845,153.47165 -13.779674,113.20744 -38.938518,103.14264 -30.468257,138.37455 Z"
+       id="path5-9" />
+  </g>
+  <circle
+     style="fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-36"
+     cx="120.62988"
+     cy="265.2926"
+     r="29.878746" />
+  <circle
+     style="fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-6-0"
+     cx="154.16394"
+     cy="152.66403"
+     r="29.878746" />
+  <circle
+     style="fill:#653473;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-6-2-6"
+     cx="112.54413"
+     cy="171.63838"
+     r="29.878746" />
+  <circle
+     style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-3-2"
+     cx="164.27893"
+     cy="269.70129"
+     r="29.878746" />
+  <circle
+     style="fill:#ff7400;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-3-3-6"
+     cx="184.08936"
+     cy="205.03687"
+     r="29.878746" />
+  <circle
+     style="fill:#ff8fd0;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-3-3-5-1"
+     cx="220.23389"
+     cy="248.91827"
+     r="29.878746" />
+  <circle
+     style="fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-3-6-8"
+     cx="142.13422"
+     cy="214.73267"
+     r="29.878746" />
+  <circle
+     style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-3-6-7-7"
+     cx="98.512482"
+     cy="220.55243"
+     r="29.878746" />
+  <circle
+     style="fill:#00b6ff;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-3-6-7-1-9"
+     cx="251.46515"
+     cy="215.71213"
+     r="29.878746" />
+  <circle
+     style="fill:#ae0027;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-3-6-7-9-2"
+     cx="56.327667"
+     cy="178.27731"
+     r="29.878746" />
+  <circle
+     style="fill:#015b00;fill-opacity:1;stroke:none;stroke-width:1.49394"
+     id="path6-3-5-0"
+     cx="57.982147"
+     cy="222.16846"
+     r="29.878746" />
+</svg>
