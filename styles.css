@@ -8,7 +8,11 @@
 /* Estiliza o corpo da página */
 body {
     font-family: 'Arial', sans-serif; /* Define a fonte padrão */
-    background-color: #f5f5f5; /* Define a cor de fundo */
+    background-color: #f5f5f5; /* Cor de fundo (usada caso a imagem não carregue) */
+    background-image: url('./images/background-stars.png'); /* URL da imagem de fundo */
+    background-size: cover; /* Faz com que a imagem cubra todo o fundo */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
     display: flex;
     flex-direction: column; /* Mantém o layout em coluna */
     justify-content: flex-start; /* Alinha o conteúdo ao topo */
@@ -25,6 +29,32 @@ h1 {
 
 h2 {
     font-size: 20px; 
+}
+
+footer {
+    font-size: 15px; 
+    text-align: center;
+}
+
+footer {
+    color: black; /* Cor do texto */
+    padding: 20px; /* Espaçamento interno */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+}
+
+/* Alinha a imagem à esquerda e o texto à direita */
+.footer-content {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    gap: 15px; /* Espaço entre a imagem e o texto */
+}
+
+/* Estiliza a imagem */
+.footer-img {
+    width: 30px; /* Define a largura da imagem */
+    height: auto; /* Mantém a proporção */
+    margin-top: 10px; /* Adiciona espaçamento entre o texto e a imagem */
 }
 
 /* Estiliza o contêiner do input e botões */
@@ -59,7 +89,7 @@ button {
     width: 100%; 
     max-width: 300px; /* Define uma largura máxima */
     padding: 10px 20px; /* Espaçamento interno */
-    background-color: #007bff; 
+    background-color: rgb(25, 180, 130); 
     color: #fff; 
     border: none; 
     border-radius: 5px; 
@@ -72,7 +102,7 @@ button {
 
 /* Muda a cor do botão ao passar o mouse */
 button:hover {
-    background-color: #0056b3;
+    background-color: rgb(25, 180, 130);
 }
 
 /* Define estilo para botões desabilitados */
