@@ -4,6 +4,8 @@
 
 Este projeto realiza sorteios estilo bingo, onde você pode inserir uma lista de nomes (separados por vírgula) e sortear aleatoriamente um vencedor por vez. O sistema armazena os participantes e vencedores, além de incluir uma animação para tornar a experiência mais visual.
 
+Você pode acessá-lo pelo link: https://jmatavares.github.io/tarefaEspecialAlpha/
+
 ## Funcionalidades
 
 - Aceita uma lista de nomes separados por vírgulas.
@@ -74,3 +76,5 @@ Sorteio #4: Bruno
 ---
 
 **Divirta-se com o sorteio e boa sorte aos participantes!**
+
+<img src="./images/video-read-me.gif">
