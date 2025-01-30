@@ -4,6 +4,10 @@ const centerX = 150 + 17.876995; // Centro do círculo maior
 const centerY = 150; // Centro do círculo maior
 const radius = 135; // Raio do círculo maior menos o raio das bolinhas
 
+/**
+ * Gera uma cor aleatória
+ * @returns {string} - A cor gerada
+ */
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -13,6 +17,10 @@ function getRandomColor() {
     return color;
 }
 
+/**
+ * Gera uma posição aleatória dentro do círculo maior
+ * @returns {Object} - Um objeto com as coordenadas x e y
+ */
 function getRandomPosition() {
     let angle = Math.random() * 2 * Math.PI;
     let r = Math.sqrt(Math.random()) * radius;
@@ -22,6 +30,10 @@ function getRandomPosition() {
     };
 }
 
+/**
+ * Cria uma bolinha
+ * @returns {Element} - A bolinha criada
+ */
 function createBall() {
     const position = getRandomPosition();
     const ball = document.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -32,84 +44,53 @@ function createBall() {
     return ball;
 }
 
+/**
+ * Move uma bolinha para uma nova posição
+ * @param {Element} ball - A bolinha a ser movida
+ */
 function moveBall(ball) {
     const position = getRandomPosition();
     ball.setAttribute("cx", position.x);
     ball.setAttribute("cy", position.y);
 }
 
+/**
+ * Move todas as bolinhas
+ */
 function moveAllBalls() {
     const balls = svg.querySelectorAll("circle.small-ball");
     balls.forEach(ball => moveBall(ball));
 }
 
-//generateButton.addEventListener("click", () => {
+
+/**
+ * Gera bolinhas
+ * Inicia a animação
+ * @param {number} quant - Quantidade de bolinhas a serem geradas
+ */
 function generateBalls(quant) {
-    //const ballCount = parseInt(ballCountInput.value, 10);
-    //if (isNaN(ballCount) || ballCount < 1 || ballCount > 20) {
-    //    alert("Por favor, insira um número entre 1 e 20.");
-    //    return;
-    //}
 
-    // Remove todas as bolinhas existentes
-    //const existingBalls = svg.querySelectorAll("circle.small-ball");
-    //existingBalls.forEach(ball => ball.remove());
-
-    // Cria novas bolinhas
     for (let i = 0; i < quant; i++) {
         const ball = createBall();
         ball.classList.add("small-ball");
         svg.appendChild(ball);
     }
 
-    // Inicia a animação
     setInterval(moveAllBalls, 1000);
 };
 
+/**
+ * Recebe mensagens do sorteio
+ * 
+ * @param {Event} event - Evento de mensagem
+ */
 window.addEventListener("message", (event) => {
-    // APAGAR
-    // Verificação da origem da mensagem
-    //if (event.origin !== "http://127.0.0.1:5500") { // Domínio de origem da mensagem
-    //    console.error("Mensagem de origem desconhecida!");
-    //    return;
-    //}
-
+    
     // A mensagem para gerar bolinhas
     const { tipo, quantidade } = event.data;
     if (tipo === "gerarBolinhas") {
         generateBalls(quantidade);
     }
-
-    // Remove uma bolinha
-    // if (tipo === "removerBolinhas") {
-    //     // Remove uma bolinha
-    //     const ballToRemove = document.querySelector("circle.small-ball");
-    //     if (ballToRemove) {
-    //         ballToRemove.remove();
-    //     }
-    
-    //     // Exibir o #resultadoBolinha com animação reiniciada
-    //     const resultadoBolinha = document.getElementById("resultadoBolinha");
-    //     const animatedCircle = document.getElementById("animatedCircle");
-    //     const circleText = document.getElementById("circleText");
-    
-    //     // Torna visível
-    //     resultadoBolinha.style.display = "block";
-    //     resultadoBolinha.style.zIndex = "2";
-    
-    //     // Reinicia a animação
-    //     animatedCircle.setAttribute("r", "10"); // Resetar raio inicial
-    //     const circleAnimation = animatedCircle.querySelector("animate");
-    //     circleAnimation.beginElement(); // Reiniciar animação da bolinha
-    
-    //     const textAnimation = circleText.querySelector("animate");
-    //     textAnimation.beginElement(); // Reiniciar animação do texto
-    
-    //     // Ocultar novamente após 3 segundos
-    //     setTimeout(() => {
-    //         resultadoBolinha.style.display = "none";
-    //     }, 3000);
-    // }
 
     /**
      * Se o tipo for removerBolinhas, então:

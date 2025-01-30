@@ -56,8 +56,6 @@ export function realizarSorteio() {
   if (!resultado) return;
 
   const { indice, vencedor } = resultado;
-  //const listaHTML = document.getElementById("nameList").children;
-  //listaHTML[indice].style.color = "green";
 
   vencedores.push(vencedor);
 
@@ -96,8 +94,6 @@ export function reiniciarSorteio() {
     iframe.contentWindow.postMessage({ tipo: "reiniciar", }, "*"); // Apagar as bolinhas restantes, se houverem
   }
   reiniciarListas();
-  //atualizarListaHTML(listaObjetos);
-  //atualizarListaDeVencedoresHTML(vencedores);
   substituirInputEbotao(listaObjetos);
   document.getElementById("carregarButton").style.display = "inline-block";
   document.getElementById("sorteioButton").style.display = "none";

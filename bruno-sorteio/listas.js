@@ -79,16 +79,8 @@ export function processarNomes() {
   }
   definirNovaLista(novaLista);
   atualizarListaHTML(listaObjetos);
-  //atualizarListaDeVencedoresHTML(vencedores);
   substituirInputEbotao();
 }
-
-// Remove um nome da lista principal //JAMILE
-//export function removerNomeDaLista(indice) {
-//  listaObjetos.splice(indice, 1);
-//  salvarNoLocalStorage("listaObjetos", listaObjetos);
-//  atualizarListaHTML(listaObjetos);
-//}
 
 /** 
  * Função para remover um nome da lista principal
@@ -120,8 +112,6 @@ export function removerNomeDaLista(indice) {
 export function reiniciarListas() {
   listaObjetos = [];
   vencedores = [];
-  //salvarNoLocalStorage("listaObjetos", listaObjetos);
-  //salvarNoLocalStorage("vencedores", vencedores);
   atualizarListaHTML(listaObjetos);
   atualizarListaDeVencedoresHTML(vencedores);
   atualizarEstadoDoBotao(listaObjetos);
