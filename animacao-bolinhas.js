@@ -1,6 +1,4 @@
 const svg = document.getElementById("animationBox");
-//const ballCountInput = document.getElementById("ballCount");
-//const generateButton = document.getElementById("generateBalls");
 
 const centerX = 150 + 17.876995; // Centro do círculo maior
 const centerY = 150; // Centro do círculo maior
@@ -113,28 +111,32 @@ window.addEventListener("message", (event) => {
     //     }, 3000);
     // }
 
-    //FAZER ISSO FUNCIONAR PARA TROCAR A COR E O NOME DENTRO DA BOLINHA DO SORTEIO
+    /**
+     * Se o tipo for removerBolinhas, então:
+     * Remove uma bolinha
+     * Pega a cor da bolinha removida
+     * Remove a bolinha
+     * Exibe o #resultadoBolinha com animação reiniciada e valores dinâmicos
+     * Pega o nome associado à bolinha removida
+     * Reinicia as animações
+     * Torna a bolinha escolhida visível
+     * Oculta novamente após 3 segundos
+     */
     if (tipo === "removerBolinhas") {
-       // Remove uma bolinha
        const ballToRemove = document.querySelector("circle.small-ball");
 
        if (ballToRemove) {
-           // Pega a cor da bolinha removida
            const corRemovida = ballToRemove.getAttribute("fill");
 
-           // Remove a bolinha
            ballToRemove.remove();
 
-           // Exibir o #resultadoBolinha com animação reiniciada e valores dinâmicos
            const resultadoBolinha = document.getElementById("resultadoBolinha");
            const animatedCircle = document.getElementById("animatedCircle");
            const circleText = document.getElementById("circleText");
 
-           // Alterar a cor e o texto dinamicamente
-           animatedCircle.setAttribute("fill", corRemovida); // Cor da bolinha removida
-           circleText.firstChild.textContent = event.data.nome; // Nome associado
+           animatedCircle.setAttribute("fill", corRemovida); 
+           circleText.firstChild.textContent = event.data.nome;
 
-           // Reiniciar animações
            animatedCircle.setAttribute("r", "10"); // Resetar raio inicial
            const circleAnimation = animatedCircle.querySelector("animate");
            circleAnimation.beginElement(); // Reiniciar animação da bolinha
@@ -142,11 +144,9 @@ window.addEventListener("message", (event) => {
            const textAnimation = circleText.querySelector("animate");
            textAnimation.beginElement(); // Reiniciar animação do texto
 
-           // Torna visível
            resultadoBolinha.style.display = "block";
            resultadoBolinha.style.zIndex = "2";
 
-           // Ocultar novamente após 3 segundos
            setTimeout(() => {
                resultadoBolinha.style.display = "none";
            }, 3000);
