@@ -20,6 +20,7 @@ body {
     padding-top: 1rem; /* Adiciona espaçamento no topo */
 }
 
+
 /* Estiliza os títulos principais */
 h1 {
     color: #333; 
@@ -27,8 +28,30 @@ h1 {
     margin-bottom: 1rem; /* Espaçamento inferior */
 }
 
+#alignment {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Mantém os itens dentro alinhados ao centro */
+    width: 100%;
+    max-width: 1000px; /* Define um tamanho máximo para evitar expansão excessiva */
+    margin: 0 auto; /* Garante centralização no layout normal */
+}
+
 h2 {
     font-size: 20px; 
+    align-self: flex-start;
+    
+}
+
+/* Estiliza o contêiner do input e botões */
+#inputContainer {
+    display: flex;
+    flex-direction: row; /* Alinha os elementos em linha */
+    align-items: baseline; /* Alinha os elementos pela linha base do texto */
+    justify-content: flex-start; /* Centraliza o conteúdo */
+    margin-bottom: 2rem; 
+    width: 100%; 
 }
 
 footer {
@@ -57,19 +80,9 @@ footer {
     margin-top: 10px; /* Adiciona espaçamento entre o texto e a imagem */
 }
 
-/* Estiliza o contêiner do input e botões */
-#inputContainer {
-    display: flex;
-    flex-direction: row; /* Alinha os elementos em linha */
-    align-items: baseline; /* Alinha os elementos pela linha base do texto */
-    justify-content: center; /* Centraliza o conteúdo */
-    margin-bottom: 2rem; 
-    width: 100%; 
-}
-
 /* Estiliza o campo de input de nomes */
 #nameInput {
-    width: 50%; /* Define largura relativa */
+    width: 100%; /* Define largura relativa */
     padding: 10px; 
     border: 1px solid #ddd; 
     border-radius: 5px; 
@@ -81,7 +94,7 @@ footer {
 
 /* Define espaçamento para instruções */
 #instruction {
-    margin-left: 2%;
+    margin-left: 2.3%;
 }
 
 /* Estiliza os botões */
@@ -215,6 +228,26 @@ button:disabled {
 
     .left-column, .center-column, .right-column {
         width: 100%;
+    }
+
+    #alignment{
+        width: fit-content;
+    }
+
+    #instruction {
+        align-self: flex-start;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0;
+    }
+
+    #inputContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 108px;
+        width: fit-content;
     }
 
     #nameInput {
