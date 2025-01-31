@@ -9,19 +9,26 @@ import {
   listaObjetos,
   vencedores,
 } from "./listas.js";
-import { 
-  realizarSorteio, 
-  reiniciarSorteio, 
-} from "./sorteio.js";
+import { realizarSorteio, reiniciarSorteio } from "./sorteio.js";
 
 // Garante que os eventos só sejam adicionados após o DOM estar carregado
 document.addEventListener("DOMContentLoaded", () => {
-  document
-    .getElementById("processButton")
-    .addEventListener("click", processarNomes);
-  document
-    .getElementById("recomecarButton")
-    .addEventListener("click", reiniciarSorteio);
+  const processButton = document.getElementById("processButton");
+
+  const processar = () => {
+    if (!processButton.disabled) {
+      processarNomes();
+      processButton.disabled = true; // Desativa o botão
+    }
+  };
+
+  processButton.addEventListener("click", processar);
+
+  document.getElementById("recomecarButton").addEventListener("click", () => {
+    reiniciarSorteio();
+    processButton.disabled = false;
+  });
+
   document.getElementById("carregarButton").addEventListener("click", () => {
     localStorage.removeItem("listaObjetos");
     document.getElementById("nameInput").style.display = "none";
@@ -33,11 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     atualizarEstadoDoBotao();
   });
 
-  //botão Enter ativa o processButton
+  // Pressionar Enter ativa o processButton (se não estiver desativado)
   document.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-      document.getElementById("processButton").click();
-    }
+    processButton.click();
+    event.preventDefault();
   });
 });
-
