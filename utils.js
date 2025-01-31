@@ -9,7 +9,7 @@ import { listaObjetos } from "./listas.js";
  * */ 
 export function obterNomesDoInput() {
   const input = document.getElementById("nameInput");
-  if (/[.!?;:()'"\\-]/.test(input.value)) {
+  if (/[.!?;:()'/"\\-]/.test(input.value)) {
     alert("Utilize somente vírgula!");
     return null;
   }
