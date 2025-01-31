@@ -246,8 +246,10 @@ button:disabled {
     }
 
     .left-column, .center-column, .right-column {
-        width: 100%;
+        text-align: left;
+        min-width: 250px;
     }
+
 
     #alignment{
         width: fit-content;

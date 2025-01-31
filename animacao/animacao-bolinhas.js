@@ -124,7 +124,6 @@ window.addEventListener("message", (event) => {
 
        if (ballToRemove) {
            const corRemovida = ballToRemove.getAttribute("fill");
-           console.log(corRemovida);
 
            ballToRemove.remove();
 
