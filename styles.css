@@ -219,6 +219,15 @@ button:disabled {
     z-index: 1;
 }
 
+#meuIframe {
+    display: block; /* Garante que ele não tenha comportamento inline */
+    width: 100%;
+    max-width: 500px; /* Ajuste conforme necessário */
+    height: auto;
+    aspect-ratio: 1.1; /* Mantém a proporção do globo */
+    margin: 0 auto
+}
+
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     .containerPag {
