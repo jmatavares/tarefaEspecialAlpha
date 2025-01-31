@@ -41,7 +41,6 @@ h1 {
 h2 {
     font-size: 20px; 
     align-self: flex-start;
-    
 }
 
 /* Estiliza o contêiner do input e botões */
@@ -135,6 +134,7 @@ button:disabled {
     border: 1px solid #ddd; 
     border-radius: 5px; 
     color: #555; 
+    margin-left: 0;
 }
 
 /* Estiliza os itens das listas */
