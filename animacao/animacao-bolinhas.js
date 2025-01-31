@@ -80,6 +80,22 @@ function generateBalls(quant) {
 };
 
 /**
+ * Calcula o brilho de uma cor
+ * 
+ * @param {string} cor - A cor a ser calculada
+ * @returns {number} - O brilho da cor
+ */
+
+function calcBrilho(cor) {
+    const red = parseInt(cor.slice(1, 3), 16);
+    const green = parseInt(cor.slice(3, 5), 16);
+    const blue = parseInt(cor.slice(5, 7), 16);
+    const brilho = 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+    return brilho;
+}
+
+
+/**
  * Recebe mensagens do sorteio
  * 
  * @param {Event} event - Evento de mensagem
@@ -108,6 +124,7 @@ window.addEventListener("message", (event) => {
 
        if (ballToRemove) {
            const corRemovida = ballToRemove.getAttribute("fill");
+           console.log(corRemovida);
 
            ballToRemove.remove();
 
@@ -117,6 +134,12 @@ window.addEventListener("message", (event) => {
 
            animatedCircle.setAttribute("fill", corRemovida); 
            circleText.firstChild.textContent = event.data.nome;
+           const brilho = calcBrilho(corRemovida);
+           if(brilho < 96) {
+            circleText.style.fill = "white";
+           } else {
+            circleText.style.fill = "black";
+           }
 
            animatedCircle.setAttribute("r", "10"); // Resetar raio inicial
            const circleAnimation = animatedCircle.querySelector("animate");
